@@ -39,7 +39,7 @@
 				<groupId>com.zenjava</groupId>
 				<artifactId>javafx-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.persongenerator.Main</mainClass>
+					<mainClass>com.persongenerator.fx.Main</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

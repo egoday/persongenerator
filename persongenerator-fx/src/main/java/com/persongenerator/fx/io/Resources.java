@@ -1,4 +1,4 @@
-package org.persongenerator.fx.io;
+package com.persongenerator.fx.io;
 
 import java.util.Locale;
 import java.util.ResourceBundle;

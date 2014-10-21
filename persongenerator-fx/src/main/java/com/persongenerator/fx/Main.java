@@ -1,4 +1,4 @@
-package org.persongenerator.fx;
+package com.persongenerator.fx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

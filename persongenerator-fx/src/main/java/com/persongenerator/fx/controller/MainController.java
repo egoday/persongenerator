@@ -1,4 +1,4 @@
-package org.persongenerator.fx.controller;
+package com.persongenerator.fx.controller;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,13 +23,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 
-import org.persongenerator.fx.controller.util.GenderImage;
-import org.persongenerator.fx.controller.util.Pref;
-import org.persongenerator.fx.controller.util.PrefUtil;
-
 import com.egoday.persongenerator.model.Gender;
 import com.egoday.persongenerator.model.Person;
 import com.egoday.persongenerator.service.PersonGenerator;
+import com.persongenerator.fx.controller.util.GenderImage;
+import com.persongenerator.fx.controller.util.Pref;
+import com.persongenerator.fx.controller.util.PrefUtil;
 
 public class MainController implements Initializable {
 	

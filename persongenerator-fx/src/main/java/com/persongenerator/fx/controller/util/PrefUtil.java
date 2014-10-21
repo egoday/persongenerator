@@ -1,4 +1,4 @@
-package org.persongenerator.fx.controller.util;
+package com.persongenerator.fx.controller.util;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
-import org.persongenerator.fx.controller.util.Pref;
+import com.persongenerator.fx.controller.util.Pref;
 
 public class PrefUtil {
 	

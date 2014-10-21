@@ -1,10 +1,9 @@
-package org.persongenerator.fx.controller;
+package com.persongenerator.fx.controller;
 
 import javafx.util.StringConverter;
 
-import org.persongenerator.fx.io.Resources;
-
 import com.egoday.persongenerator.model.Gender;
+import com.persongenerator.fx.io.Resources;
 
 public class GenderConverter extends StringConverter<Gender> {
 

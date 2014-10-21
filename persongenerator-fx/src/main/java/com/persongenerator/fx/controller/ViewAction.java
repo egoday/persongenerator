@@ -1,4 +1,4 @@
-package org.persongenerator.fx.controller;
+package com.persongenerator.fx.controller;
 
 import javafx.beans.property.StringProperty;
 

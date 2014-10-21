@@ -1,4 +1,4 @@
-package org.persongenerator.fx.controller;
+package com.persongenerator.fx.controller;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

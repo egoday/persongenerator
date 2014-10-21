@@ -1,4 +1,4 @@
-package org.persongenerator.fx.controller.util;
+package com.persongenerator.fx.controller.util;
 
 import java.io.InputStream;
 
