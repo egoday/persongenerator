@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="360.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.persongenerator.fx.controller.MainController">
+  <bottom>
+    <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="-1.0" prefWidth="-1.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <children>
+        <Label fx:id="messageLabel" text="" />
+        <Button fx:id="copyButton" mnemonicParsing="false" onAction="#onCopy" text="Copiar" />
+        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#onNext" text="Siguiente" />
+      </children>
+      <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+    </HBox>
+  </bottom>
+  <center>
+    <VBox prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab fx:id="generationTab" text="Configuración">
+              <content>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <Label layoutX="14.0" layoutY="17.0" prefWidth="112.0" text="Género:" />
+                    <ChoiceBox fx:id="genderChoiceBox" layoutX="126.0" layoutY="14.0" prefWidth="174.0">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                    </ChoiceBox>
+                    <Label layoutX="14.0" layoutY="43.0" prefWidth="112.0" text="DNI:" />
+                    <TextField fx:id="dni1TextField" layoutX="126.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <Label layoutX="14.0" layoutY="69.0" prefWidth="112.0" text="Dificultad Nombre:" />
+                    <Label layoutX="14.0" layoutY="106.0" prefWidth="112.0" text="Dificultad Apellidos:" />
+                    <Slider fx:id="nameSlider" blockIncrement="5.0" layoutX="126.0" layoutY="71.0" minorTickCount="4" prefWidth="174.0" showTickLabels="true" showTickMarks="true" />
+                    <Slider fx:id="appsSlider" blockIncrement="5.0" layoutX="126.0" layoutY="108.0" majorTickUnit="25.0" minorTickCount="4" prefWidth="174.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                    <TextField fx:id="dni2TextField" layoutX="150.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni3TextField" layoutX="174.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni4TextField" layoutX="198.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni5TextField" layoutX="222.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni6TextField" layoutX="246.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni7TextField" layoutX="270.0" layoutY="40.0" prefWidth="24.0" text="" />
+                    <TextField fx:id="dni8TextField" layoutX="294.0" layoutY="40.0" prefWidth="24.0" text="" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="generatedTab" text="Persona generada">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="80.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label layoutX="110.0" layoutY="14.0" prefWidth="83.0" text="Nombre:" />
+                    <TextField fx:id="nameTextField" layoutX="110.0" layoutY="30.0" prefWidth="200.0" />
+                    <Label layoutX="110.0" layoutY="67.0" text="DNI:" />
+                    <TextField fx:id="dniTextField" layoutX="110.0" layoutY="83.0" prefWidth="200.0" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </children>
+    </VBox>
+  </center>
+  <padding>
+    <Insets />
+  </padding>
+</BorderPane>
