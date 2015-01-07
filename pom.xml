@@ -9,7 +9,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<j2se.version>1.7</j2se.version>
+		<j2se.version>1.8</j2se.version>
 	</properties>
 
 	<modules>
