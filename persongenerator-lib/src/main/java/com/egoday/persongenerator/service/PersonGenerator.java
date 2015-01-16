@@ -30,10 +30,7 @@ public class PersonGenerator {
 		String app2 = appGenerator.nextString();
 		String dni = dniGenerator.nextDni();
 		
-		return Person.create()
-				.gender(gender).name(name)
-				.app1(app1).app2(app2)
-				.dni(dni);
+		return new Person(gender, name, app1, app2, dni);
 	}
 	
 	private Gender randomGender() {

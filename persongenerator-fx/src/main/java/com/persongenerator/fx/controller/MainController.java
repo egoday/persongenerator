@@ -74,8 +74,8 @@ public class MainController implements Initializable {
 						dniPattern);
 				
 				nameTextField.setText(person.fullName());
-				dniTextField.setText(person.dni());
-				imageView.setImage(GenderImage.fromGender(person.gender()));
+				dniTextField.setText(person.getDni());
+				imageView.setImage(GenderImage.fromGender(person.getGender()));
 
 				selectTab(generatedTab);
 			}
