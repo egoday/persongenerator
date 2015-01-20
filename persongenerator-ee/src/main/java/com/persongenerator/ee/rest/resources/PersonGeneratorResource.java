@@ -26,8 +26,6 @@ public class PersonGeneratorResource {
     		@DefaultValue("100") @QueryParam("appsPercentage") Double appsPercentage,
     		@DefaultValue("") @QueryParam("dniPattern") DniPattern dniPattern) {
     	
-    	System.out.printf("%s %s %s %s %n", gender, namesPercentage, appsPercentage, dniPattern);
-    	
     	return personGenerator.nextPerson(gender, namesPercentage, appsPercentage, dniPattern.toList());
     }
 }

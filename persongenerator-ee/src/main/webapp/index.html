@@ -15,14 +15,15 @@
 </head>
 <body ng-controller="MainController">
 	<div class="container">
+		<div class="page-header">
+			<h1>
+				PersonGenerator <small>Generador de nombres, apellidos y
+					dni de personas</small>
+			</h1>
+		</div>
+		
 		<div class="row">
-			<div class="col-sm-12">
-				<div class="page-header">
-					<h1>
-						PersonGenerator <small>Generador de nombres, apellidos y
-							dni de personas</small>
-					</h1>
-				</div>
+			<div class="col-sm-9">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<form name="queryForm" class="form-horizontal" novalidate>
@@ -67,60 +68,75 @@
 								</div>
 							</div>
 
+							<div class="panel panel-default" ng-show="person != null">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-3">
+											<img src="img/female.png" style="height: 200px;width:200px" alt="female"
+												ng-show="person.gender == 'FEMALE'" />
+											<img src="img/male.png" style="height: 200px;width:200px" alt="male"
+												ng-show="person.gender == 'MALE'" />
+										</div>
+										<div class="col-sm-9">
+											<form class="form-horizontal" >
+												<div class="form-group">
+													<label for="personName" class="col-sm-3 control-label">Nombre:</label>
+													<div class="col-sm-9">
+														<input name="personName" class="form-control" ng-model="person.name" disabled/>
+													</div>
+												</div>
+					
+												<div class="form-group">
+													<label for="personApp1" class="col-sm-3 control-label">Apellido 1:</label>
+													<div class="col-sm-9">
+														<input name="personApp1" class="form-control" ng-model="person.app1" disabled/>
+													</div>
+												</div>
+					
+												<div class="form-group">
+													<label for="personApp2" class="col-sm-3 control-label">Apellido 2:</label>
+													<div class="col-sm-9">
+														<input name="personApp2" class="form-control" ng-model="person.app2" disabled/>
+													</div>
+												</div>
+					
+												<div class="form-group">
+													<label for="personDni" class="col-sm-3 control-label">Dni:</label>
+													<div class="col-sm-9">
+														<input name="personDni" class="form-control" ng-model="person.dni" disabled/>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<input type="submit"
 								class="btn btn-primary"
 								ng-disabled="queryForm.$invalid"
 								ng-click="next(query)" value="Siguiente persona" />
+
+							<input type="submit" ng-show="person != null" class="btn btn-success" ng-click="archive(person)"
+								value="Archivar" />
+
+							<input type="submit" ng-show="person != null" class="btn btn-warning" ng-click="remove(person)"
+								value="Descartar" />
+
+							<input type="submit" ng-show="person != null" class="btn btn-default" ng-click="copy(person)"
+								value="Copiar al portapapeles" />
 						</form>
 					</div>
 				</div>
-				
-				<div class="panel panel-default" ng-show="person != null">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-sm-3">
-								<img src="img/female.png" style="height: 200px;width:200px" alt="female"
-									ng-show="person.gender == 'FEMALE'" />
-								<img src="img/male.png" style="height: 200px;width:200px" alt="male"
-									ng-show="person.gender == 'MALE'" />
-							</div>
-							<div class="col-sm-9">
-								<form class="form-horizontal" >
-									<div class="form-group">
-										<label for="personName" class="col-sm-2 control-label">Nombre:</label>
-										<div class="col-sm-10">
-											<input name="personName" class="form-control" ng-model="person.name" disabled/>
-										</div>
-									</div>
-		
-									<div class="form-group">
-										<label for="personApp1" class="col-sm-2 control-label">Apellido 1:</label>
-										<div class="col-sm-10">
-											<input name="personApp1" class="form-control" ng-model="person.app1" disabled/>
-										</div>
-									</div>
-		
-									<div class="form-group">
-										<label for="personApp2" class="col-sm-2 control-label">Apellido 2:</label>
-										<div class="col-sm-10">
-											<input name="personApp2" class="form-control" ng-model="person.app2" disabled/>
-										</div>
-									</div>
-		
-									<div class="form-group">
-										<label for="personDni" class="col-sm-2 control-label">Dni:</label>
-										<div class="col-sm-10">
-											<input name="personDni" class="form-control" ng-model="person.dni" disabled/>
-										</div>
-									</div>
-
-									<input type="submit" class="btn btn-default" ng-click="copy(person)"
-										value="Copiar al portapapeles" />
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+			</div>
+			
+			<div class="col-sm-3">
+			  <div class="list-group">
+			    <a ng-repeat="person in persons" ng-animate=" 'animate' " class="list-group-item" ng-click="unarchive(person)">
+			    	<h4 class="list-group-item-heading">{{person.name}} {{person.app1}} {{person.app2}}</h4>
+			      	<p class="list-group-item-text">{{person.dni}}</p>
+			    </a>
+			  </div>
 			</div>
 		</div>
 	</div>
