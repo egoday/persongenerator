@@ -9,9 +9,11 @@
 <script type="text/javascript" src="js/ui-bootstrap-0.12.0.min.js"></script>
 <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
 <script src="js/controllers.js"></script>
+<script src="js/ZeroClipboard.min.js"></script>
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/main.css" />
+<link rel="shortcut icon" href="img/female.png" type="image/png" />
 </head>
 <body ng-controller="MainController">
 	<div class="container">
@@ -111,7 +113,7 @@
 									</div>
 								</div>
 							</div>
-
+							
 							<input type="submit"
 								class="btn btn-primary"
 								ng-disabled="queryForm.$invalid"
@@ -123,8 +125,16 @@
 							<input type="submit" ng-show="person != null" class="btn btn-warning" ng-click="remove(person)"
 								value="Descartar" />
 
-							<input type="submit" ng-show="person != null" class="btn btn-default" ng-click="copy(person)"
-								value="Copiar al portapapeles" />
+							<button id="copy-button"
+								class="btn btn-default"
+								ng-show="person != null"
+								data-clipboard-target="clipboard_text">
+									Copiar al portapapeles								
+							</button>
+
+							<span id="clipboard_text" style="display: none">
+								{{person.name}} {{person.app1}} {{person.app2}} {{person.dni}}
+							</span>
 						</form>
 					</div>
 				</div>
@@ -140,5 +150,27 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		var client = new ZeroClipboard( document.getElementById("copy-button") );
+	
+		client.on( "ready", function(readyEvent) {
+		  client.on("copy" , function(event) {
+			  event.target.setAttribute('class', 'btn btn-warning');
+			  event.target.setAttribute('disabled', true);
+		  });
+
+		  client.on( "aftercopy", function(event) {
+			  event.target.setAttribute('class', 'btn btn-success');
+			  event.target.innerHTML = 'Copiado ' + event.data['text/plain'];
+			  
+			  setTimeout(function() {
+				  event.target.setAttribute('class', 'btn btn-default');
+				  event.target.innerHTML = 'Copiar al portapapeles';
+				  event.target.removeAttribute('disabled');
+			  }, 2000)
+		  });
+		});
+	</script>
 </body>
 </html>

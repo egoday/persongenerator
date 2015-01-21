@@ -36,11 +36,6 @@ personGeneratorApp.controller('MainController', function($scope, $http, $localSt
 			alert(url + " " + data);
 		});
 	}
-	
-	$scope.copy = function(person) {
-		var text = person.name + " " + person.app1 + " " + person.app2 + " " + person.dni;
-		window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-	}
 
 	$scope.remove = function(person) {
 		$scope.person = null;
